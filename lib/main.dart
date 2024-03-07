@@ -54,25 +54,70 @@ class MyScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     // Material is a conceptual piece
     // of paper on which the UI appears.
-    return Material(
-      // Column is a vertical, linear layout.
-      child: Column(
-        children: [
-          MyAppBar(
-            title: Text(
-              'Example title',
-              style: Theme.of(context) //
-                  .primaryTextTheme
-                  .titleLarge,
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+                width: 100,
+                decoration: BoxDecoration(border: Border.all()),
+                child: Text(
+                    overflow: TextOverflow.ellipsis,
+                    'Hello Coding Is Life, how are you?')),SizedBox(height: 10,),
+            Container(
+                width: 100,
+                decoration: BoxDecoration(border: Border.all()),
+                child: Text(
+                    overflow: TextOverflow.fade,
+                    'Hello Coding Is Life, how are you?')),
+            Container(
+              width: 100,
+              child: Text(
+                  overflow: TextOverflow.fade,
+                  maxLines: 1,
+                  'Hello Coding is life, how are you?'),
             ),
-          ),
-          const Expanded(
-            child: Center(
-              child: Text('Hello, world!'),
+            Container(
+              width: 100,
+              child: Text(
+                  overflow: TextOverflow.fade,
+                  softWrap: false,
+                  'Hello Coding is life, how are you?'),
             ),
-          ),
-        ],
-      ),
+
+            const Text.rich(
+              TextSpan(
+                text: 'Hello', // default text style
+                children: <TextSpan>[
+                  TextSpan(text: ' beautiful ',
+                      style: TextStyle(fontStyle: FontStyle.italic)),
+                  TextSpan(text: 'world',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+
+SizedBox(height: 20,),
+            Container(
+              width: 100,
+              child: Text(
+                  'Hello Coding is life, how are you?',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 3,
+                color: Colors.red,
+                fontStyle: FontStyle.italic
+              ),
+              ),
+            ),
+
+
+          ],
+        ),
+      )
     );
   }
 }
